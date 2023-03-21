@@ -1,31 +1,23 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React from 'react'
+import ProductCard from "../ProductCard/ProductCard"
+import Container from '@mui/material/Container'
 
-export default function MediaCard(props) {
+const ItemListContainer = () => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={props.img}
-        title="img"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {props.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {props.desc}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  );
+    <Container>
+        
+        <ProductCard 
+            name="Doom Eternal" 
+            desc="Un FPS lanzado en 2020" 
+            img="https://thegatorseye.com/wp-content/uploads/2022/12/Doom-Eternal-900x900.png" />  
+
+        <ProductCard 
+            name="Project CARS 3" 
+            desc="Un simulador de carreras lanzado en 2021" 
+            img="https://www.operationsports.com/wp-content/uploads/2020/08/Project-CARS-3-Screenshot-2020.08.27-15.12.43.91.png?resize=1000%2C600" />  
+    </Container>
+
+  )
 }
+
+export default ItemListContainer

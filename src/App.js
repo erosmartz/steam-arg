@@ -6,6 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline'
 
 /* COMPONENTS */
 import Navbar from "./components/NavBar/NavBar"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import Container from '@mui/material/Container';
 
 
 
@@ -22,14 +24,24 @@ const App = () => {
     <React.Fragment>
       
       <CssBaseline />
-      
-      {
-        
-          <Navbar /> 
-          <ItemListContainer name="Doom Eternal" desc="Un FPS lanzado en 2020" img="https://thegatorseye.com/wp-content/uploads/2022/12/Doom-Eternal-900x900.png" /> 
+        {
+          <div>
+
+            <div>
+              <Navbar />
+            </div>
+            
+            
+            <div>
+              <ItemListContainer/>
+            </div>
+            
           
-        
-      }
+          
+          
+          </div>
+        }
+
     </React.Fragment>
     </ThemeProvider>
 

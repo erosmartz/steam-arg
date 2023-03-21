@@ -10,6 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
 
 const pages = ['Catálogo', 'Noticias'];
 
@@ -24,7 +26,6 @@ function Navbar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
 
 
   return (
@@ -103,7 +104,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            STEAM-ARG
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -116,6 +117,14 @@ function Navbar() {
               </Button>
             ))}
           </Box>
+          
+          <MenuItem>
+        <IconButton size="large" aria-label="show the cart" color="inherit">
+          <Badge badgeContent={4} color="error">
+            <ShoppingCartIcon />
+          </Badge>
+        </IconButton>
+        </MenuItem>
 
 
         </Toolbar>
