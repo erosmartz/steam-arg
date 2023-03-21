@@ -10,8 +10,9 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge';
+
+import CartWidget from "../CartWidget/CartWidget"
+
 
 const pages = ['Catálogo', 'Noticias'];
 
@@ -118,13 +119,8 @@ function Navbar() {
             ))}
           </Box>
           
-          <MenuItem>
-        <IconButton size="large" aria-label="show the cart" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        </MenuItem>
+          
+          <CartWidget />
 
 
         </Toolbar>
