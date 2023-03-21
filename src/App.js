@@ -7,7 +7,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 /* COMPONENTS */
 import Navbar from "./components/NavBar/NavBar"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
-import Container from '@mui/material/Container';
 
 
 
