@@ -32,7 +32,7 @@ const App = () => {
             
             
             <div>
-              <ItemListContainer/>
+              <ItemListContainer greeting="Nuevos juegos!"/>
             </div>
             
           

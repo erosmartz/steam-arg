@@ -3,10 +3,11 @@ import ProductCard from "../ProductCard/ProductCard"
 import Container from '@mui/material/Container';
 import "./ItemListContainer.css"
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
   return (
 
     <Container>
+        <div><p>{props.greeting}</p></div>
         <div class="grid">
             
             
