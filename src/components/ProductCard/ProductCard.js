@@ -10,7 +10,7 @@ const ProductCard = ({game}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 400 }}
         image={game.imagen}
         title="img"
       />
@@ -23,8 +23,8 @@ const ProductCard = ({game}) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">{game.rating}</Button>
-        <Button size="small">{game.precio}</Button>
+        <Button size="small">⭐{game.rating}</Button>
+        <Button size="small">${game.precio}</Button>
       </CardActions>
     </Card>
   );
