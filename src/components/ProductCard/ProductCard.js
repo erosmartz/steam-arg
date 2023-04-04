@@ -6,25 +6,25 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const ProductCard = (props) => {
+const ProductCard = ({game}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
-        image={props.img}
+        image={game.imagen}
         title="img"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {props.name}
+          {game.nombre}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.desc}
+          {game.genero}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Comprar</Button>
-        <Button size="small">Ver Trailer</Button>
+        <Button size="small">{game.rating}</Button>
+        <Button size="small">{game.precio}</Button>
       </CardActions>
     </Card>
   );

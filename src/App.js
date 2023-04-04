@@ -1,13 +1,20 @@
+/* REACT */
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
+/* MUI */
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline'
 
 
 /* COMPONENTS */
 import Navbar from "./components/NavBar/NavBar"
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import Footer from "./components/Footer/footer"
 
+/* PAGES */
+import ItemListContainer from "./pages/Home/ItemListContainer"
+import Category from "./pages/Category/category"
+import Item from "./pages/Item/item"
 
 
 const darkTheme = createTheme({
@@ -24,21 +31,18 @@ const App = () => {
       
       <CssBaseline />
         {
-          <div>
+          <Router>
+            <Navbar />
 
-            <div>
-              <Navbar />
-            </div>
-            
-            
-            <div>
-              <ItemListContainer greeting="Nuevos juegos!"/>
-            </div>
-            
-          
-          
-          
-          </div>
+            <Routes> 
+              <Route path="/" element={<ItemListContainer />} />
+              <Route path="/category/:id" element={<Category />} />
+              <Route path="/item/:id" element={<Item />} />
+            </Routes>
+
+            <Footer />
+
+          </Router>
         }
 
     </React.Fragment>
