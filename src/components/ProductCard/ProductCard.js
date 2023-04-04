@@ -8,23 +8,37 @@ import Typography from '@mui/material/Typography';
 
 const ProductCard = ({game}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 375}}>
       <CardMedia
-        sx={{ height: 400 }}
+        component="img"
+        alt="https://www.iforium.com/wp-content/uploads/Placeholder-Image-400.png"
+        /* sx={{ height: 400 }} */
+        height="350"
         image={game.imagen}
-        title="img"
+        title={game.nombre}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+      <CardContent sx={{ pb: 0}}>
+        <Typography noWrap variant="h5" component="div">
           {game.nombre}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {game.genero}
         </Typography>
+        
       </CardContent>
-      <CardActions>
-        <Button size="small">⭐{game.rating}</Button>
-        <Button size="small">${game.precio}</Button>
+      <CardActions sx={{ justifyContent:'space-between', pt: 0}}>
+      <Button 
+        size="large"
+        color='primary' 
+        onClick={() => {window.open(game.review)}}>
+          ⭐{game.rating}
+      </Button>  
+      <Button 
+        variant='outlined' 
+        size="large"
+        color='success'>
+          ${game.precio}
+      </Button>
       </CardActions>
     </Card>
   );

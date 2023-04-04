@@ -7,11 +7,11 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? 'null' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 
@@ -32,7 +32,7 @@ const ItemListContainer = () => {
       <Grid container spacing={2}> 
         {games.map( (game) => {
           return (
-            <Grid xs={4}> 
+            <Grid xs={3}> 
                 <Item> 
                   <ProductCard game={game} /> 
                 </Item>
