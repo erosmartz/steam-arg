@@ -38,7 +38,7 @@ const ItemListContainer = () => {
             <Grid xs={3}>
                 <Link to={`/item/${i}`}
                   state={{data: game}}
-                  
+                  style={{textDecoration: "none"}}
                    >
                   <Item key={i}> 
                     <ProductCard game={game} /> 
