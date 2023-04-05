@@ -36,10 +36,10 @@ const ItemListContainer = () => {
           return (
 
             <Grid xs={3}>
-                <Link to={{pathname:`/item/${i}`,
-                  state: {game}
+                <Link to={`/item/${i}`}
+                  state={{data: game}}
                   
-                  }} >
+                   >
                   <Item key={i}> 
                     <ProductCard game={game} /> 
                   </Item>
