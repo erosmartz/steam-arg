@@ -5,6 +5,7 @@ import "./styles.css"
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
+import { Link } from "react-router-dom"
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? 'null' : '#fff',
@@ -21,21 +22,25 @@ const ItemListContainer = () => {
 
   React.useEffect(() => {
 
-    fetch('api/juegos.json')
+    fetch('https://raw.githubusercontent.com/erosmartz/steam-arg/master/public/api/juegos.json')
       .then((response) => response.json())
       .then((data) => setGames(data))
 
   }, [])
 
+
   return (
     <Container>
       <Grid container spacing={2}> 
-        {games.map( (game) => {
+        {games.map( (game, i) => {
           return (
-            <Grid xs={3}> 
-                <Item> 
-                  <ProductCard game={game} /> 
-                </Item>
+
+            <Grid xs={3}>
+                <Link to={`/item/${i}`} >
+                  <Item> 
+                    <ProductCard game={game} /> 
+                  </Item>
+                </Link> 
             </Grid>
           )
 

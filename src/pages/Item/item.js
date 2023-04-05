@@ -1,9 +1,13 @@
 import React from 'react'
+import Details from '../../components/Details/Details'
+import Container from '@mui/material/Container';
 
-const item = () => {
+const Item = () => {
   return (
-    <div>item</div>
+    <Container sx={{width:'600px'}}>
+      <Details />
+    </Container>
   )
 }
 
-export default item
+export default Item

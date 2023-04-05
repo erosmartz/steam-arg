@@ -1,4 +1,9 @@
+/* REACT */
+
 import * as React from 'react';
+import { Link } from "react-router-dom"
+
+/* MUI */
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,12 +14,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
+
+/* PROJECT */
 import CartWidget from "../CartWidget/CartWidget"
 
 
-const pages = ['Catálogo', 'Noticias'];
+
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -28,12 +35,23 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
+    /* const pages = ['Catálogo', 'Acerca De']; */
+  const pages = [
+    {
+      route:'/', 
+      name:'Catálogo'
+    },
+    {
+      route:'/about', 
+      name:'Acerca de'
+    }
+  ];
 
   return (
-    <AppBar position="sticky" sx={{ mb: 2}}>
+    <AppBar position="sticky" sx={{ mb: 5}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <SportsEsportsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -44,7 +62,7 @@ function Navbar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.2rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -81,14 +99,20 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              
+              {pages.map( (page, i) => {
+                return (
+                  <MenuItem key={i} onClick={handleCloseNavMenu}>
+                    <Link to={page.route}>
+                      <Typography textAlign="center">{page.name}</Typography>
+                    </Link>
+                  </MenuItem>
+                  )
+                })}
+              
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <SportsEsportsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -108,15 +132,22 @@ function Navbar() {
             STEAM-ARG
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+            {pages.map((page, i) => {
+              return(
+                <Link to={page.route}>
+                <Button
+                key={i}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+                >
+                  
+                    {page.name}
+                  
+                </Button>
+                </Link>
+              
+            )}
+            )}
           </Box>
           
           

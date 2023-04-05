@@ -13,7 +13,7 @@ import Footer from "./components/Footer/footer"
 
 /* PAGES */
 import ItemListContainer from "./pages/Home/ItemListContainer"
-import Category from "./pages/Category/category"
+import About from "./pages/About/about"
 import Item from "./pages/Item/item"
 
 
@@ -36,7 +36,7 @@ const App = () => {
 
             <Routes> 
               <Route path="/" element={<ItemListContainer />} />
-              <Route path="/category/:id" element={<Category />} />
+              <Route path="/about" element={<About />} />
               <Route path="/item/:id" element={<Item />} />
             </Routes>
 

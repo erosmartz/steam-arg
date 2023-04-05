@@ -8,11 +8,10 @@ import Typography from '@mui/material/Typography';
 
 const ProductCard = ({game}) => {
   return (
-    <Card sx={{ maxWidth: 375}}>
+    <Card sx={{maxWidth: 375}}>
       <CardMedia
         component="img"
         alt="https://www.iforium.com/wp-content/uploads/Placeholder-Image-400.png"
-        /* sx={{ height: 400 }} */
         height="350"
         image={game.imagen}
         title={game.nombre}
