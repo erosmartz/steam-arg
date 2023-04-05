@@ -12,7 +12,7 @@ const Footer = () => {
       <Container maxWidth="xl">
         <Toolbar>
           <Typography variant="subtitle1">
-            Eros Martínez  © {new Date().getFullYear()}, Construido con React Native. Para Proyecto de React @ CODERHOUSE
+            Eros Martínez  © {new Date().getFullYear()}, Construido con React. Para Proyecto de React @ CODERHOUSE
           </Typography>
         </Toolbar>
       </Container>
