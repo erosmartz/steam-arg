@@ -23,7 +23,7 @@ import CartWidget from "../CartWidget/CartWidget"
 
 
 
-function Navbar() {
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -48,7 +48,7 @@ function Navbar() {
   ];
 
   return (
-    <AppBar position="sticky" sx={{ mb: 5}}>
+    <AppBar position="sticky" sx={{ mb: 3}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <SportsEsportsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
