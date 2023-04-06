@@ -5,28 +5,31 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-const FilterMenu = () => {
-  const [alignment, setAlignment] = React.useState('left');
+const FilterMenu = ({ handleSortMethodChange }) => {
 
-  const handleAlignment = (event, newAlignment) => {
+  const [alignment, setAlignment] = React.useState('alphabetical');
+
+  const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
+    handleSortMethodChange(newAlignment);
   };
+    
 
   return (
     <ToggleButtonGroup
       value={alignment}
       exclusive
-      onChange={handleAlignment}
+      onChange={handleChange} 
       aria-label="text alignment"
       size='small'
     >
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton value="alphabetical" aria-label="sort by alphabetical order">
         <SortByAlphaIcon />
       </ToggleButton>
-      <ToggleButton value="center" aria-label="centered">
+      <ToggleButton value="price" aria-label="sort by price">
         <AttachMoneyIcon />
       </ToggleButton>
-      <ToggleButton value="right" aria-label="right aligned">
+      <ToggleButton value="rating" aria-label="sort by rating">
         <StarHalfIcon />
       </ToggleButton>
     </ToggleButtonGroup>

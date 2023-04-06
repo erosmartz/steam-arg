@@ -21,9 +21,20 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const ItemListContainer = () => {
 
+  /* VARIABLES */
+
+  /* ESTADO JUEGO */
   const [games, setGames] = React.useState([]);
+
+  /* ESTADO CATEGORIAS */
   const [categories, setCategories] = React.useState([]);
+
+  /* ESTADO SORTING */
+  const [sortingMethod, setSortingMethod] = React.useState(null);
+
   
+
+  /* CONSUMIENDO API */
   React.useEffect(() => {
     fetch("https://raw.githubusercontent.com/erosmartz/steam-arg/master/public/api/juegos.json")
       .then((response) => response.json())
@@ -40,13 +51,37 @@ const ItemListContainer = () => {
   }, []);
 
 
+
+
+  /* FUNCION FILTROS */
+  React.useEffect(() => {
+    const sortGames = (method) => {
+      if (method === 'alphabetical') {
+        setGames([...games].sort((a, b) => a.nombre.localeCompare(b.nombre)));
+      } else if (method === 'price') {
+        setGames([...games].sort((a, b) => a.precio - b.precio));
+      } else if (method === 'rating') {
+        setGames([...games].sort((a, b) => b.rating - a.rating));
+      }
+    };
+  
+    sortGames(sortingMethod);
+  }, [sortingMethod]);
+  
+
+  const handleSortMethodChange = (event, newMethod) => {
+    setSortingMethod(newMethod);
+  };
+
+  
+
   return (
   
   <Container>
     <AppBar position="static" sx={{mb:3}}>
     <Toolbar sx={{justifyContent:'space-between'}}>
         <CategoryMenu categories={categories}/>
-        <FilterMenu />
+        <FilterMenu handleSortMethodChange={handleSortMethodChange} />
     </Toolbar>
     </AppBar>
 
@@ -55,7 +90,7 @@ const ItemListContainer = () => {
         {games.map( (game, i) => {
           return (
 
-            <Grid xs={3}>
+            <Grid key={i} xs={3}>
                 <Link to={`/item/${i}`}
                   state={{data: game}}
                   style={{textDecoration: "none"}}
