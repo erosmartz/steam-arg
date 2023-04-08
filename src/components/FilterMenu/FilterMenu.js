@@ -6,17 +6,22 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import ClearIcon from '@mui/icons-material/Clear';
 
-const FilterMenu = ()  => {
+const FilterMenu = ({ onFilterChange }) => {
+  const [filterOption, setFilterOption] = React.useState('');
 
-  const [alignment, setAlignment] = React.useState('alphabetical');
-
-  
-    
+  const handleFilterChange = (event, newFilterOption) => {
+    if (newFilterOption !== null) {
+      console.log(newFilterOption);
+      setFilterOption(newFilterOption);
+      onFilterChange(newFilterOption);
+    }
+  };
 
   return (
     <ToggleButtonGroup
-      value={alignment}
-      onChange='' 
+      value={filterOption}
+      exclusive
+      onChange={handleFilterChange}
       aria-label="text alignment"
       size='small'
     >
