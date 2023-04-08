@@ -29,8 +29,6 @@ const ItemListContainer = () => {
   /* ESTADO CATEGORIAS */
   const [categories, setCategories] = React.useState([]);
 
-  /* ESTADO SORTING */
-  const [sortingMethod, setSortingMethod] = React.useState(null);
 
   
 
@@ -53,25 +51,10 @@ const ItemListContainer = () => {
 
 
 
-  /* FUNCION FILTROS */
-  React.useEffect(() => {
-    const sortGames = (method) => {
-      if (method === 'alphabetical') {
-        setGames([...games].sort((a, b) => a.nombre.localeCompare(b.nombre)));
-      } else if (method === 'price') {
-        setGames([...games].sort((a, b) => a.precio - b.precio));
-      } else if (method === 'rating') {
-        setGames([...games].sort((a, b) => b.rating - a.rating));
-      }
-    };
+
   
-    sortGames(sortingMethod);
-  }, [sortingMethod]);
   
 
-  const handleSortMethodChange = (event, newMethod) => {
-    setSortingMethod(newMethod);
-  };
 
   
 
@@ -81,7 +64,8 @@ const ItemListContainer = () => {
     <AppBar position="static" sx={{mb:3}}>
     <Toolbar sx={{justifyContent:'space-between'}}>
         <CategoryMenu categories={categories}/>
-        <FilterMenu handleSortMethodChange={handleSortMethodChange} />
+        <FilterMenu        
+/>
     </Toolbar>
     </AppBar>
 

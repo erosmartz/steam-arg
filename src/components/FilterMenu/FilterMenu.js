@@ -4,22 +4,19 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import ClearIcon from '@mui/icons-material/Clear';
 
-const FilterMenu = ({ handleSortMethodChange }) => {
+const FilterMenu = ()  => {
 
   const [alignment, setAlignment] = React.useState('alphabetical');
 
-  const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
-    handleSortMethodChange(newAlignment);
-  };
+  
     
 
   return (
     <ToggleButtonGroup
       value={alignment}
-      exclusive
-      onChange={handleChange} 
+      onChange='' 
       aria-label="text alignment"
       size='small'
     >
@@ -31,6 +28,9 @@ const FilterMenu = ({ handleSortMethodChange }) => {
       </ToggleButton>
       <ToggleButton value="rating" aria-label="sort by rating">
         <StarHalfIcon />
+      </ToggleButton>
+      <ToggleButton value="" aria-label="clear sorting method">
+        <ClearIcon />
       </ToggleButton>
     </ToggleButtonGroup>
   );
